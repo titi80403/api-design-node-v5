@@ -33,16 +33,3 @@ export const verifyToken = async (token: string): Promise<JwtPayload> => {
     username: payload.username as string,
   }
 }
-
-export const decodeToken = (token: string): JwtPayload | null => {
-  try {
-    const payload = decodeJwt(token)
-    return {
-      id: payload.id as string,
-      email: payload.email as string,
-      username: payload.username as string,
-    }
-  } catch {
-    return null
-  }
-}
